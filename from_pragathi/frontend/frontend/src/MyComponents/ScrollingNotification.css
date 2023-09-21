@@ -1,0 +1,32 @@
+/* ScrollingNotification.css */
+.scroll-container {
+    position: relative;
+    overflow: hidden;
+    height: 50px; /* Adjust the height as needed */
+  }
+  
+  .scrolling-notification {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #007bff; /* Notification background color (adjust as needed) */
+    color: #fff; /* Text color */
+    padding: 10px;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite; /* Animation for scrolling */
+    transition: left 0.5s;
+  }
+  
+  .visible {
+    left: -100%; /* Slide in from the right */
+  }
+  
+  @keyframes scroll {
+    from {
+      left: 100%;
+    }
+    to {
+      left: -100%;
+    }
+  }
+  

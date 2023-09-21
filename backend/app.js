@@ -270,4 +270,15 @@ app.get("/paginatedUsers", async (req, res) => {
   res.json(results)
 })
 
+app.get("/profile/:id",async(req,res)=>{
+  const {id}=req.params;
+  try {
+    const user = await User.find({deptName:id});
+    res.send({ status: "ok", data: user });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({error:error})
+  }
+})
+
 module.exports =app;

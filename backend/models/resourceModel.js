@@ -15,61 +15,61 @@ const resource=mongoose.Schema({
 
     },
     Quantity:{
-        type:Number,
+        type:String,
         required:[true,"Please enter the Quantity"],
     },
-    Item_Details: {
-            ITEM_CODE:{ type:Number,
+    Item_details: {
+            Item_code:{ type:Number,
             required:[true,"Please Enter the Item_CODE"]
             },
-            ITEM:{ 
+            Item:{ 
                 type:String,
                 required:[true,"Please ENter the Item name"]
             }
         },
-        Department_Contact_Details: {
-            DEPT_NAME:{
+        Department_contact_details: {
+            Dept_name:{
                 type:String,
                 required:[true,"Please Enter the Department Name"],
             },
-            DEPT_ADDR: {
+            Dept_addr: {
                 type:String,
                 required:[true,"Please Enter the Dept_Addr Name"],
         
             },
-            CONTACT_PERSON: {
+            Contact_person: {
                 type:String,
                 required:[true,"Please Enter the Person Name"],
         
             },
-            CONTACT_NO:{
+            Contact_no:{
                 type:Number,
                 required:[true,"Please Enter the District Name"],
                 maxLength:[10,"Please Enter a Valid Phone Number"],
             } ,
-            CONTACT_EMAIL: {
+            Contact_email: {
                 type: String,
                 required: [true, "Please Enter Your Email"],
                 validate: [validator.isEmail, "Please Enter a valid Email"],
               },
         },
-        Item_Description: {
-            ITEM_DESC: {
+        Item_description: {
+            Item_desc: {
                 type:String,
                 required:[true,"Please Enter the Person Name"],
         
             },
-            LOCATION: {
+            Location: {
                 type:String,
                 required:[true,"Please Enter the Person Name"],
         
             },
-            SOURCE: {
+            Source: {
                 type:String,
                 required:[true,"Please Enter the Person Name"],
         
             },
-            LAST_UPDATION:{
+            Last_updation:{
                 type:Date,
                 default:Date.now,
             }

@@ -1,5 +1,5 @@
 const express=require("express");
-const { getAllResources } = require("../controllers/resourceController");
+const { getAllResources, addResource, getAllItems } = require("../controllers/resourceController");
 
 const router =express.Router();
 router.use(function(req, res, next) {
@@ -8,5 +8,6 @@ router.use(function(req, res, next) {
     next();
   })
 router.route("/getResource").get(getAllResources);
-
+router.route("/registerItem").post(addResource);
+router.route("/getAllItems").get(getAllItems);
 module.exports =router;
