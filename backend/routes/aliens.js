@@ -32,6 +32,7 @@ router.post('/', async(req,res) => {
     //{deptname,items}
     console.log(req.body)
     const {sender,request}=req.body;
+    request.items=request.items.map(each=>({...each,status:"Pending"}))
     const alien = new Alien({
         // requestId:req.body.requestId,
         senderId: sender,
@@ -90,11 +91,11 @@ router.get('/byid/:receiverId', async (req, res) => {
   router.put('/senderId/:senderId', async (req, res) => {
     try {
       const senderId = req.params.senderId;
-      const { resourcesGranted,Status } = req.body;
-
+      const { resourcesGranted,resourcesRequested,Status } = req.body;
+      console.log(resourcesRequested)
       const updatedAlien = await Alien.findOneAndUpdate(
         { _id: senderId },
-        { $set: { resourcesGranted: resourcesGranted ,Status: Status} },
+        { $set: { resourcesGranted: resourcesGranted ,resourcesRequested:resourcesRequested,Status: Status} },
         { new: true }
       );
   
